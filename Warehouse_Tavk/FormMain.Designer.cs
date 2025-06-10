@@ -32,6 +32,7 @@
             this.listBoxWarehouse = new System.Windows.Forms.ListBox();
             this.labelProducts = new System.Windows.Forms.Label();
             this.labelWarehouse = new System.Windows.Forms.Label();
+            this.buttonCheck = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxProducts
@@ -71,17 +72,28 @@
             this.labelWarehouse.TabIndex = 3;
             this.labelWarehouse.Text = "Склад";
             // 
-            // Form1
+            // buttonCheck
+            // 
+            this.buttonCheck.Location = new System.Drawing.Point(561, 363);
+            this.buttonCheck.Name = "buttonCheck";
+            this.buttonCheck.Size = new System.Drawing.Size(178, 46);
+            this.buttonCheck.TabIndex = 4;
+            this.buttonCheck.Text = "ПРОВЕРКА";
+            this.buttonCheck.UseVisualStyleBackColor = true;
+            this.buttonCheck.Click += new System.EventHandler(this.buttonCheck_Click);
+            // 
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonCheck);
             this.Controls.Add(this.labelWarehouse);
             this.Controls.Add(this.labelProducts);
             this.Controls.Add(this.listBoxWarehouse);
             this.Controls.Add(this.listBoxProducts);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormMain";
+            this.Text = "Склад";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -93,6 +105,7 @@
         private System.Windows.Forms.ListBox listBoxWarehouse;
         private System.Windows.Forms.Label labelProducts;
         private System.Windows.Forms.Label labelWarehouse;
+        private System.Windows.Forms.Button buttonCheck;
     }
 }
 

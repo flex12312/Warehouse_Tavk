@@ -23,16 +23,35 @@ namespace Warehouse_Tavk
             new Product("Стасик", DateTime.Today.AddDays(20000)),
             new Product("Тушенка", DateTime.Today.AddDays(1826)),
         };
+        private List<Product> products = new List<Product>();
         public FormMain()
         {
             InitializeComponent();
             foreach (var product in allProducts)
-                listBoxProducts.Items.Add(product.Name);
+                listBoxProducts.Items.Add(product.ToString());
         }
 
         private void listBoxProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Product product = allProducts[listBoxProducts.SelectedIndex];
+            FormReceiptDate formReceiptDate = new FormReceiptDate(listBoxWarehouse, product,products);
+            formReceiptDate.ShowDialog();
+        }
 
+        private void buttonCheck_Click(object sender, EventArgs e)
+        {
+            DeleteExpiredProducts();
+        }
+
+        private void DeleteExpiredProducts()
+        {
+            for (int i = products.Count - 1; i >= 0; i--)
+                if (products[i].CheckingExpirationDate())
+                    products.RemoveAt(i);
+
+            listBoxWarehouse.Items.Clear();
+            foreach (var product in products)
+                listBoxWarehouse.Items.Add(product.ToString());
         }
     }
 }

@@ -7,11 +7,11 @@ using System.Xml.Linq;
 
 namespace Warehouse_Tavk
 {
-    class Product
+    public class Product
     {
         public string Name {  get; set; }
-        public DateTime ExpirationDate { get; set; }
-        public DateTime ReceiptDate { get; set; }
+        public DateTime ExpirationDate { get; private set; }
+        public DateTime ReceiptDate { get; private set; }
         public Product(string name , DateTime expirationDate)
         {
             Name = name;
@@ -20,6 +20,14 @@ namespace Warehouse_Tavk
         public bool CheckingExpirationDate()
         {
             return (ExpirationDate - DateTime.Today).TotalDays <= 3;
+        }
+        public void SetReceiptDate(DateTime receiptDate)
+        {
+            ReceiptDate = receiptDate;
+        }
+        public override string ToString()
+        {
+            return $"{Name} {ExpirationDate.ToShortDateString()}";
         }
     }
 }
